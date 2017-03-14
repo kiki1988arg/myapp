@@ -1,4 +1,5 @@
 var express = require('express');
+var nunjucks  = require('nunjucks');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -21,6 +22,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+nunjucks.configure(app.get('views'), {
+    autoescape: true,
+    noCache: true,
+    watch: true,
+    express: app
+});
 
 app.use('/', index);
 app.use('/users', users);
