@@ -32,6 +32,7 @@ nunjucks.configure('views', {
 });
 
 app.use('/', index);
+
 app.use('/users', users);
 
 
