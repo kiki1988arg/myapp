@@ -1,13 +1,9 @@
-<!doctype html>
-<html>
-  <head>
-    <title>welcome to {{ title }}</title>
-  </head>
-  <body>
-    <ul>
-      {% for item in items %}
-        {% include "item.html" %}
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% include "head.html" %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p>Que hace guachín</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
+</div>
+{% include "footer.html" %}
