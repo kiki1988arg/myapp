@@ -35,6 +35,12 @@ var messages = [{
 io.on('connection', function (socket) {
   console.log('Un cliente se ha conectado');
   socket.emit('messages', messages);
+  
+  socket.on('new-message', function(data) {
+    messages.push(data);
+
+    io.sockets.emit('messages', messages);
+  });
 });
 
 // view engine setup
