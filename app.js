@@ -6,10 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var server = app.listen(3000);
+// var server = require('http').Server(app);
+// var io = require('socket.io')(server);
 
-var server = require('http').Server(app);
+
+
 var io = require('socket.io')(server);
-
 
 var index = require('./routes/index.js');
 var users = require('./routes/users.js');
@@ -36,7 +39,7 @@ io.on('connection', function (socket) {
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-
+app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
