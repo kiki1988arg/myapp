@@ -6,7 +6,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
-var server = app.listen(80);
+var server = require('http').createServer(app);
+server.listen(process.env.PORT || 3000);
+// var server = app.listen(80);
 // var server = require('http').Server(app);
 // var io = require('socket.io')(server);
 
